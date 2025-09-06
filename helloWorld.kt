@@ -27,6 +27,6 @@ fun main() {
     println("Edad par: ${if (esPar) "Sí" else "No"}")
     val saludo: String = "Hola"
     println()
-    saludar(saludo, nombre)
-    mostrarGenero(sexo)
+    saludar(saludo, nombre)//Hola Jean Paul Cabrera Flores
+    mostrarGenero(sexo)//Mi genero es: HOMBRE
 }
