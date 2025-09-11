@@ -2,31 +2,55 @@ enum class Sexo {
     HOMBRE, MUJER
 }
 
-fun saludar(saludo: String, nombre: String){
-    println("$saludo $nombre")
-}
+class Persona(
+    val nombre: String,
+    val nombreMateria: String,
+    val peso: Int,
+    val altura: Int,
+    val edad: Int,
+    val sexo: Sexo
+) {
+    private val esPar: Boolean = edad % 2 == 0
 
-fun mostrarGenero(sexo: Sexo){
-    println("Mi genero es: $sexo")
+    fun mostrarDatos() {
+        println("$nombre $nombreMateria")
+        println("Peso: $peso kg")
+        println("Altura: $altura cm")
+        println("Edad: $edad")
+        println("Sexo: $sexo")
+        println("Edad par: ${if (esPar) "Sí" else "No"}")
+    }
+
+    fun saludar(saludo: String) {
+        println("$saludo $nombre")
+    }
+
+    fun mostrarGenero() {
+        println("Mi género es: $sexo")
+    }
+
+    fun esMayorDeEdad() {
+        if (edad >= 18) {
+            println("Soy mayor de edad ✔")
+        } else {
+            println("Soy menor de edad ✘")
+        }
+    }
 }
 
 fun main() {
-	val nombre: String = "Jean Paul Cabrera Flores"
-	val nombreMateria: String = "Aplicaciones Móviles"
-	val peso: Int = 70
-	val altura: Int = 171
-	val edad: Int = 22
-	val sexo = Sexo.HOMBRE
-	val esPar: Boolean = if (edad % 2 == 0) true else false
+    val persona = Persona(
+        nombre = "Jean Paul Cabrera Flores",
+        nombreMateria = "Aplicaciones Móviles",
+        peso = 70,
+        altura = 171,
+        edad = 22,
+        sexo = Sexo.HOMBRE
+    )
 
-    println("$nombre $nombreMateria")
-    println("Peso: $peso kg")
-    println("Altura: $altura cm")
-    println("Edad: $edad")
-    println("Sexo: $sexo")
-    println("Edad par: ${if (esPar) "Sí" else "No"}")
-    val saludo: String = "Hola"
+    persona.mostrarDatos()
     println()
-    saludar(saludo, nombre)//Hola Jean Paul Cabrera Flores
-    mostrarGenero(sexo)//Mi genero es: HOMBRE
+    persona.saludar("Hola")
+    persona.mostrarGenero()
+    persona.esMayorDeEdad()
 }
